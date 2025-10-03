@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ilk *{
+            margin: 5px;
+        }
+        .ilk{
+            display: flex;
+            align-items: center;
+        }
+        .ilk button{
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            width: 50px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="ilk">
+        <input type="number" id="eded1" />
+        <button onclick="ok1()"><p id="symbol">TAP</p></button>
+        <input type="number" id="eded2" />
+    </div>
+    <div class="iilk">
+        <h1>Kvadrat tenlik</h1>
+        <input type="number" id="a" placeholder="a" />
+        <input type="number" id="b" placeholder="b" />
+        <input type="number" id="c" placeholder="c" />
+        <button onclick="ok2()">Hesabla</button>
+        <p id="netice"></p>
+    </div>
+    
+
+    <script>
+        const eded1 = document.getElementById('eded1')
+        const symbol = document.getElementById('symbol')
+        const eded2 = document.getElementById('eded2')
+
+        function ok1() {
+            if(eded1.value<eded2.value){
+                symbol.innerHTML='<'
+            }else if(eded1.value>eded2.value){
+                symbol.innerHTML='>'
+            }else{
+                symbol.innerHTML='='
+            }
+        }
+
+        function ok2() {
+        const a = document.getElementById('a').value
+        const b = document.getElementById('b').value
+        const c = document.getElementById('c').value
+        const netice = document.getElementById('netice')
+
+        if (a === 0) {
+            netice.innerHTML = "a ≠ 0 olmalıdır"
+        }
+
+        const D = b*b - 4*a*c
+
+        if (D < 0) {
+            netice.innerHTML = "Kök yoxdur"
+        } else if (D === 0) {
+            let x = -b / (2*a)
+            netice.innerHTML = "Tək kök: x = " + x
+        } else {
+            let x1 = (-b + Math.sqrt(D)) / (2*a)
+            let x2 = (-b - Math.sqrt(D)) / (2*a)
+            netice.innerHTML = "İki kök: x₁ = " + x1 + " , x₂ = " + x2
+        }
+    }
+
+    </script>
+</body>
+</html>
